@@ -22,7 +22,6 @@ class ExamScheduler:
         # Add StringIO buffer for logging
         self.log_buffer = io.StringIO()
 
-    # [Previous methods remain the same]
     def _generate_student_subjects(self) -> Dict[int, Set[int]]:
         student_subjects = {}
         subjects = list(range(self.num_subjects))

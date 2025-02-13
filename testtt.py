@@ -1,10 +1,10 @@
 import random
-from constraint import Problem,BacktrackingSolver
+from constraint import Problem,RecursiveBacktrackingSolver
 
 # Constants
-SUBJECTS = [str(i) for i in range(800)]
-DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ]
-NUM_STUDENTS = 1000
+SUBJECTS = [str(i) for i in range(150)]
+DAYS = [f'{x}' for x in range(15) ]
+NUM_STUDENTS = 200
 
 # Generate random student schedules
 def generate_student_schedules(num_students, subjects, subjects_per_student=3):
@@ -14,7 +14,7 @@ def generate_student_schedules(num_students, subjects, subjects_per_student=3):
 student_schedules = generate_student_schedules(NUM_STUDENTS, SUBJECTS)
 print(student_schedules)
 # Create the CSP problem
-problem = Problem(BacktrackingSolver())
+problem = Problem(RecursiveBacktrackingSolver())
 
 # Add variables (subjects) and their domains (days)
 for subject in SUBJECTS:

@@ -25,7 +25,7 @@ class ExamScheduler:
         subjects = list(range(self.num_subjects))
         
         for student in range(self.num_students):
-            student_subjects[student] = set(random.sample(subjects, 3))
+            student_subjects[student] = set(random.sample(subjects, 3)) # Number of subject taken by a student is hardocded here
         return student_subjects
 
     def _create_subject_constraints(self) -> Dict[int, Set[int]]:
@@ -248,8 +248,8 @@ def main():
         random.seed(42)  # Reset seed for fair comparison
         scheduler = ExamScheduler(
             num_students=70,
-            num_subjects=45,
-            num_days=6,
+            num_subjects=25,
+            num_days=7,
             use_mrv=case['mrv'],
             use_degree=case['degree'],
             use_lcv=case['lcv']
@@ -260,7 +260,7 @@ def main():
             end_time = time.time()
             print(f"\nSolution found in {end_time - start_time:.3f} seconds!")
             scheduler.display_solution()
-            scheduler.visualize_steps()
+            # scheduler.visualize_steps()
         else:
             print("\nNo solution exists!")
 
